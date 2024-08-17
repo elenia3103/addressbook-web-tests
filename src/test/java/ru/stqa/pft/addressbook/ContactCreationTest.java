@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 
-public class GroupCreationTest {
+public class ContactCreationTest {
     private WebDriver wd;
 
     @BeforeMethod(alwaysRun = true)
@@ -32,41 +32,35 @@ public class GroupCreationTest {
     }
 
     @Test
-    public void testGroupCreation() throws Exception {
-        goToGroupPage();
-        initGroupCreation();
-        fillGroupForm(new GroupData("group1", "header1", "footer1"));
-        submitGroupCreation();
-        returnToGroupPage();
-
+    public void testContactCreation() throws Exception {
+        initContactCreation();
+        fillContactForm(new ContactData("test1", "testov1", "address1","mobile1","email1"));
+        submitContactCreation();
+        goToHomePage();
     }
 
-    private void returnToGroupPage() {
-        wd.findElement(By.linkText("group page")).click();
+    private void submitContactCreation() {
+        wd.findElement(By.xpath("//input[21]")).click();
+    }
+    private void goToHomePage() {
+        wd.findElement(By.linkText("home page")).click();
     }
 
-    private void submitGroupCreation() {
-        wd.findElement(By.name("submit")).click();
+    private void fillContactForm(ContactData contactData) {
+        wd.findElement(By.name("firstname")).click();
+        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
+        wd.findElement(By.name("lastname")).click();
+        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+        wd.findElement(By.name("address")).click();
+        wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
+        wd.findElement(By.name("email")).click();
+        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        wd.findElement(By.name("mobile")).click();
+        wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
     }
 
-    private void fillGroupForm(GroupData groupData) {
-        wd.findElement(By.name("group_name")).click();
-        wd.findElement(By.name("group_name")).clear();
-        wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
-        wd.findElement(By.name("group_header")).click();
-        wd.findElement(By.name("group_header")).clear();
-        wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-        wd.findElement(By.name("group_footer")).click();
-        wd.findElement(By.name("group_footer")).clear();
-        wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-    }
-
-    private void initGroupCreation() {
-        wd.findElement(By.name("new")).click();
-    }
-
-    private void goToGroupPage() {
-        wd.findElement(By.linkText("groups")).click();
+    private void initContactCreation() {
+        wd.findElement(By.linkText("add new")).click();
     }
 
     @AfterMethod(alwaysRun = true)

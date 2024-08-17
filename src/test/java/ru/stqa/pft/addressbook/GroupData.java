@@ -1,34 +1,25 @@
 package ru.stqa.pft.addressbook;
 
 public class GroupData {
-    private final String firstname;
-    private final String lastname;
-    private String address;
-    private String email;
-    private String mobile;
+    private final String name;
+    private final String header;
+    private final String footer;
 
-    public GroupData(String firstname, String lastname, String address, String mobile, String email) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.address = address;
-        this.mobile = mobile;
-        this.email = email;
+    public GroupData(String name, String header, String footer) {
+        this.name = name;
+        this.header = header;
+        this.footer = footer;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getName() {
+        return name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getHeader() {
+        return header;
     }
 
-    public String getAddress() { return address;
-    }
-
-    public String getEmail() { return email;
-    }
-
-    public String getMobile() { return mobile;
+    public String getFooter() {
+        return footer;
     }
 }
