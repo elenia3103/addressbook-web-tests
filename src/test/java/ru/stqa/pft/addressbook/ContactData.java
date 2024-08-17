@@ -1,6 +1,6 @@
 package ru.stqa.pft.addressbook;
 
-public class ContactData {
+public class ContactData extends TestBase{
     private final String firstname;
     private final String lastname;
     private String address;
