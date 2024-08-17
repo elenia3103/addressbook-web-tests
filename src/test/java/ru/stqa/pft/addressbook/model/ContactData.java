@@ -1,6 +1,8 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.model;
 
-public class ContactData extends TestBase{
+import ru.stqa.pft.addressbook.tests.TestBase;
+
+public class ContactData extends TestBase {
     private final String firstname;
     private final String lastname;
     private String address;
