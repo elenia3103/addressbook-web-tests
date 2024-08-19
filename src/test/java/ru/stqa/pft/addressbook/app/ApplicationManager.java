@@ -1,11 +1,9 @@
 package ru.stqa.pft.addressbook.app;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.time.Duration;
 
@@ -34,15 +32,6 @@ public class ApplicationManager {
             wd.findElement(by);
             return true;
         } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    private boolean isAlertPresent() {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
             return false;
         }
     }

@@ -13,8 +13,10 @@ public class GroupHelper extends BaseHelper{
         click(By.name("submit"));
     }
 
-    public void fillGroupForm(GroupData groupData, String text) {
-        type(groupData, By.name(text));
+    public void fillGroupForm(GroupData groupData) {
+        click(By.name("group_name"));
+        wd.findElement(By.name("group_name")).clear();
+        wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
         click(By.name("group_header"));
         wd.findElement(By.name("group_header")).clear();
         wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
@@ -33,5 +35,12 @@ public class GroupHelper extends BaseHelper{
 
     public void selectGroup() {
         click(By.name("selected[]"));
+    }
+
+    public void initModificationGroup() {
+        click(By.name("edit"));
+    }
+    public void submitGroupModification() {
+        click(By.name("update"));
     }
 }
