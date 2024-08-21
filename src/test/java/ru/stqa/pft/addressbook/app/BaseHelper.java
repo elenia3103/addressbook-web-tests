@@ -3,11 +3,11 @@ package ru.stqa.pft.addressbook.app;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.Browser;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 public class BaseHelper {
-   protected WebDriver wd;
-
+    protected WebDriver wd;
     public BaseHelper(WebDriver wd) {
         this.wd=wd;
     }
