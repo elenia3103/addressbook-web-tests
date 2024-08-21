@@ -14,15 +14,9 @@ public class GroupHelper extends BaseHelper{
     }
 
     public void fillGroupForm(GroupData groupData) {
-        click(By.name("group_name"));
-        wd.findElement(By.name("group_name")).clear();
-        wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
-        click(By.name("group_header"));
-        wd.findElement(By.name("group_header")).clear();
-        wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-        click(By.name("group_footer"));
-        wd.findElement(By.name("group_footer")).clear();
-        wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+        type(groupData.getName(), By.name("group_name"));
+        type(groupData.getHeader(), By.name("group_header"));
+        type(groupData.getFooter(), By.name("group_footer"));
     }
 
     public void initGroupCreation() {

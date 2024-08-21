@@ -11,8 +11,17 @@ public class BaseHelper {
     public BaseHelper(WebDriver wd) {
         this.wd=wd;
     }
+
     protected void click(By locator) {
         wd.findElement(locator).click();
+    }
+    protected void type(String text, By locator) {
+        click(locator);
+        if (text!=null){
+            wd.findElement(locator).clear();
+            wd.findElement(locator).sendKeys(text);
+
+        }
     }
     public boolean isAlertPresent() {
         try {
@@ -22,5 +31,7 @@ public class BaseHelper {
             return false;
         }
     }
+
+
 }
 

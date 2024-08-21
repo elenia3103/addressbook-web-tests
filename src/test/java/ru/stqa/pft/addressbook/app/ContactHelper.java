@@ -13,16 +13,11 @@ public class ContactHelper extends BaseHelper{
     }
 
     public void fillContactForm(ContactData contactData) {
-        click(By.name("firstname"));
-        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-        click(By.name("lastname"));
-        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-        click(By.name("address"));
-        wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-        click(By.name("email"));
-        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
-        click(By.name("mobile"));
-        wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
+        type(contactData.getFirstname(), By.name("firstname"));
+        type(contactData.getLastname(), By.name("lastname"));
+        type(contactData.getAddress(), By.name("address"));
+        type(contactData.getEmail(), By.name("email"));
+        type(contactData.getMobile(), By.name("mobile"));
     }
 
     public void initContactCreation() {
@@ -33,10 +28,10 @@ public class ContactHelper extends BaseHelper{
         wd.switchTo().alert().accept();
     }
     public void selectContact(){
-        click(By.id("7"));
+        click(By.id("6"));
     }
     public void editSelectedContact(){
-        click(By.cssSelector("a[href='edit.php?id=7']"));
+        click(By.cssSelector("a[href='edit.php?id=6']"));
     }
 
     public void updateContact() {
