@@ -29,7 +29,7 @@ public class ApplicationManager {
             System.setProperty("webdriver.edge.driver", "C:\\autotests\\addressbook-web-tests\\msedgedriver.exe");
             wd = new EdgeDriver();
         }
-        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         contactHelper = new ContactHelper(wd);
